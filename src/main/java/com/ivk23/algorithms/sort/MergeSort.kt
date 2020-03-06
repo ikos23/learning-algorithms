@@ -3,7 +3,7 @@ package com.ivk23.algorithms.sort
 class MergeSort<T> {
 
     // temp array to be used in merging
-    private lateinit var aux: Array<Comparable<T>?>;
+    private lateinit var aux: Array<Comparable<T>?>
 
     fun sort(arr: Array<Comparable<T>>) {
         this.aux = arrayOfNulls(arr.size)
@@ -36,13 +36,10 @@ class MergeSort<T> {
             when {
                 i > mid -> arr[k] = aux[j++]!!
                 j > hi -> arr[k] = aux[i++]!!
+                @Suppress("UNCHECKED_CAST")
                 (aux[j]!! < aux[i]!! as T) -> arr[k] = aux[j++]!!
                 else -> arr[k] = aux[i++]!!
             }
-            /*if (i > mid) arr[k] = aux[j++]!!
-            else if (j > hi) arr[k] = aux[i++]!!
-            else if ((aux[j]!! < aux[i]!! as T)) arr[k] = aux[j++]!!
-            else arr[k] = aux[i++]!!*/
         }
     }
 
